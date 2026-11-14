@@ -2,14 +2,7 @@
 
 /* TIPOGRAFÍAS */
 
-/* Importa DM Sans desde Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
-
-/* Tipografía para los títulos */
-@font-face {
-    font-family: "Barcola";
-    src: url("fonts/Barcola.otf") format("opentype");
-}
 
 /* ESTILOS GENERALES */
 
@@ -437,10 +430,10 @@ button:hover {
 
 /* TIPOGRAFÍAS DEL MENÚ */
 
-/* Título principal con Barcola */
+/* Título principal */
 .menu-hero h1 {
-    font-family: "Barcola", sans-serif;
-    font-weight: normal;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 900;
     letter-spacing: -2px;
 }
 
@@ -470,7 +463,8 @@ button,
 
 /* Título de la canción */
 #song-title {
-    font-family: "Barcola", sans-serif;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 900;
     font-size: clamp(40px, 6vw, 75px);
     font-weight: normal;
     line-height: 1;
@@ -538,9 +532,10 @@ button,
     text-align: left;
 }
 
-/* Título principal con Barcola */
+/* Título principal */
 #results h2 {
-    font-family: "Barcola", sans-serif;
+   font-family: "DM Sans", sans-serif;
+    font-weight: 900;
     font-size: clamp(50px, 9vw, 110px);
     font-weight: normal;
     line-height: 1;
