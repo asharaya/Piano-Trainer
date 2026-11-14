@@ -1,0 +1,741 @@
+
+
+/* TIPOGRAFÍAS */
+
+/* Importa DM Sans desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+/* Tipografía para los títulos */
+@font-face {
+    font-family: "Barcola";
+    src: url("fonts/Barcola.otf") format("opentype");
+}
+
+/* ESTILOS GENERALES */
+
+/* Estilos principales */
+body {
+    margin: 0;
+    font-family: "DM Sans", sans-serif;
+    background-color: #121212;
+    color: white;
+    text-align: center;
+}
+
+/* Contenedor principal */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Título principal */
+h1 {
+    font-size: 48px;
+}
+
+/* BOTONES */
+
+/* Diseño */
+button {
+    padding: 15px 25px;
+    margin: 10px;
+    border: 2px solid #02039b;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #fbfaf6;
+    color: #02039b;
+    transition: all 0.3s ease;
+}
+
+/* Cambia el color al pasar el mouse */
+button:hover {
+    background-color: #02039b;
+    color: white;
+}
+
+/* PANTALLAS */
+
+/* Oculta las secciones que tengan hidden */
+[hidden] {
+    display: none !important;
+}
+
+/* PIANO */
+
+/* Contenedor de las teclas del piano */
+#piano {
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 220px;
+    /* Une el piano con el área de las notas */
+    margin: 0 auto 30px;
+}
+
+/* Diseño de las teclas blancas */
+.white-key {
+    flex: 1;
+    background-color: #fbfaf6;
+    border: 1px solid #333;
+    border-radius: 0 0 6px 6px;
+    color: #02039b;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 15px;
+    box-sizing: border-box;
+}
+
+/* Diseño de las teclas negras */
+.black-key {
+    position: absolute;
+    width: 6%;
+    height: 60%;
+    background-color: #121212;
+    color: white;
+    border: 1px solid #02039b;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 12px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+/* Posición de teclas negras */
+.black-key:nth-child(11) { left: 7%; }
+.black-key:nth-child(12) { left: 17%; }
+.black-key:nth-child(13) { left: 37%; }
+.black-key:nth-child(14) { left: 47%; }
+.black-key:nth-child(15) { left: 57%; }
+.black-key:nth-child(16) { left: 77%; }
+.black-key:nth-child(17) { left: 87%; }
+
+/* EFECTOS DE LAS TECLAS */
+
+/* Hacer clic y evita seleccionar el texto */
+.white-key,
+.black-key {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.1s;
+}
+
+/* Ilumina las teclas blancas */
+/* Color de las teclas blancas al presionarlas */
+.white-key.active {
+    background-color: #02039b !important;
+    color: white !important;
+}
+
+/* Ilumina las teclas negras */
+.black-key.active {
+    background-color: #02039b;
+    color: white;
+}
+
+
+/* ÁREA DE LAS NOTAS */
+
+/* Espacio donde aparecerán las notas */
+#note-area {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 350px;
+    margin: 30px auto 0;
+    background-color: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+/* Línea donde debemos tocar cada nota */
+#hit-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #02039b;
+    z-index: 3;
+}
+
+/* Diseño de los bloques musicales */
+.note-block {
+    position: absolute;
+    background-color: #02039b;
+    border: 1px solid #7778ff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    z-index: 2;
+    will-change: transform;
+}
+
+
+/* EFECTO DE NOTA INCORRECTA */
+
+/* Ilumina en rojo las teclas incorrectas */
+.white-key.wrong,
+.black-key.wrong,
+.white-key.active.wrong,
+.black-key.active.wrong {
+    background-color: #e63946 !important;
+    color: white !important;
+}
+
+
+
+/* DISEÑO RESPONSIVE */
+
+/* Evita que el tamaño de los elementos cause desbordamientos */
+* {
+    box-sizing: border-box;
+}
+
+/* Pantallas medianas */
+@media (max-width: 1200px) {
+
+    /* Reduce los espacios laterales */
+    main {
+        padding: 30px 20px;
+    }
+
+    /* Ajusta el tamaño del título */
+    h1 {
+        font-size: 40px;
+    }
+
+    /* Ajusta el área de las notas */
+    #note-area {
+        height: 300px;
+    }
+
+    /* Ajusta la altura del piano */
+    #piano {
+        height: 200px;
+    }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 600px) {
+
+    /* Reduce los espacios generales */
+    main {
+        padding: 20px 10px;
+    }
+
+    /* Reduce el título */
+    h1 {
+        font-size: 30px;
+    }
+
+    /* Ajusta los botones */
+    button {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    /* Reduce el área de las notas */
+    #note-area {
+        height: 250px;
+    }
+
+    /* Reduce la altura del piano */
+    #piano {
+        height: 160px;
+    }
+
+    /* Reduce el tamaño de las letras de las teclas */
+    .white-key,
+    .black-key {
+        font-size: 11px;
+    }
+}
+
+
+/* MENÚ EDITORIAL / BRUTALIST */
+
+/* Contenedor principal del menú */
+#menu {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Encabezado superior */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #777;
+    padding-bottom: 15px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* Sección del título */
+.menu-hero {
+    padding: 65px 0;
+}
+
+/* Texto pequeño sobre el título */
+.menu-label {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #aaa;
+}
+
+/* Título principal */
+.menu-hero h1 {
+    font-size: clamp(70px, 12vw, 150px);
+    line-height: 0.85;
+    letter-spacing: -6px;
+    margin: 25px 0;
+    font-weight: 900;
+}
+
+/* Segunda palabra en azul */
+.menu-hero h1 span {
+    color: #02039b;
+}
+
+/* Descripción */
+.menu-description {
+    font-size: 18px;
+    color: #ccc;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+/* Contenedor de canciones */
+.menu-tracks {
+    background-color: #02039b;
+    padding: 30px;
+}
+
+/* Título de la sección */
+.menu-tracks h2 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+/* Lista de canciones */
+#song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Botones de las canciones */
+#song-list button {
+    width: 100%;
+    margin: 0;
+    padding: 22px;
+    border: none;
+    border-radius: 0;
+    background-color: #fbfaf6;
+    color: #121212;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+/* Efecto al pasar el mouse */
+#song-list button:hover {
+    background-color: #121212;
+    color: white;
+    padding-left: 35px;
+}
+
+/* Sección del modo libre */
+.menu-free {
+    padding: 45px 0;
+    border-bottom: 1px solid #777;
+}
+
+/* Texto del modo libre */
+.menu-free > span {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #aaa;
+}
+
+/* Botón de Free Play */
+#free-play {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0 0;
+    padding: 25px;
+    border: 1px solid #fbfaf6;
+    border-radius: 0;
+    background-color: transparent;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Efecto del botón Free Play */
+#free-play:hover {
+    background-color: #fbfaf6;
+    color: #02039b;
+}
+
+/* Pie del menú */
+.menu-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #999;
+}
+
+
+/* MENÚ EN PANTALLAS PEQUEÑAS */
+
+@media (max-width: 600px) {
+
+    /* Ajusta el título */
+    .menu-hero h1 {
+        font-size: 58px;
+        letter-spacing: -3px;
+    }
+
+    /* Reduce los espacios */
+    .menu-hero {
+        padding: 45px 0;
+    }
+
+    .menu-tracks {
+        padding: 20px;
+    }
+
+    /* Ajusta las canciones */
+    #song-list button {
+        font-size: 15px;
+        padding: 18px;
+    }
+
+    /* Ajusta los textos pequeños */
+    .menu-header,
+    .menu-footer {
+        font-size: 9px;
+        gap: 15px;
+    }
+}
+
+
+/* TIPOGRAFÍAS DEL MENÚ */
+
+/* Título principal con Barcola */
+.menu-hero h1 {
+    font-family: "Barcola", sans-serif;
+    font-weight: normal;
+    letter-spacing: -2px;
+}
+
+/* Títulos de las secciones */
+.menu-tracks h2 {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+}
+
+/* Botones y textos */
+button,
+.menu-description,
+.menu-header,
+.menu-footer {
+    font-family: "DM Sans", sans-serif;
+}
+
+
+/* PANTALLA DEL JUEGO */
+
+/* Contenedor principal */
+#game {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Título de la canción */
+#song-title {
+    font-family: "Barcola", sans-serif;
+    font-size: clamp(40px, 6vw, 75px);
+    font-weight: normal;
+    line-height: 1;
+    margin: 20px 0 35px;
+    color: #fbfaf6;
+}
+
+/* Contadores del juego */
+#game > p {
+    display: inline-block;
+    margin: 0 30px 25px 0;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Números de los contadores */
+#progress,
+#misses {
+    color: #fbfaf6;
+    font-size: 20px;
+}
+
+/* Botón para regresar al menú */
+#back-button {
+    display: block;
+    margin: 30px 0;
+    padding: 15px 25px;
+    border: 1px solid #fbfaf6;
+    border-radius: 0;
+    background-color: transparent;
+    color: #fbfaf6;
+    font-weight: 700;
+}
+
+/* Efecto del botón */
+#back-button:hover {
+    background-color: #fbfaf6;
+    color: #02039b;
+}
+
+/* Ajustes para teléfonos */
+@media (max-width: 600px) {
+
+    #song-title {
+        font-size: 38px;
+    }
+
+    #game > p {
+        margin-right: 15px;
+        font-size: 12px;
+    }
+}
+
+
+/* PANTALLA DE RESULTADOS */
+
+/* Contenedor principal */
+#results {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 0;
+    text-align: left;
+}
+
+/* Título principal con Barcola */
+#results h2 {
+    font-family: "Barcola", sans-serif;
+    font-size: clamp(50px, 9vw, 110px);
+    font-weight: normal;
+    line-height: 1;
+    color: #fbfaf6;
+    margin: 20px 0 40px;
+}
+
+/* Caja azul de resultados */
+#final-results {
+    background-color: #02039b;
+    color: #fbfaf6;
+    padding: 30px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+/* Botones de resultados */
+#play-again,
+#results-menu {
+    padding: 20px 30px;
+    margin: 0 10px 10px 0;
+    border-radius: 0;
+    font-family: "DM Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* Botón principal */
+#play-again {
+    background-color: #fbfaf6;
+    color: #121212;
+    border: 1px solid #fbfaf6;
+}
+
+/* Efecto del botón principal */
+#play-again:hover {
+    background-color: #02039b;
+    color: white;
+    border-color: #02039b;
+}
+
+/* Botón secundario */
+#results-menu {
+    background-color: transparent;
+    color: #fbfaf6;
+    border: 1px solid #fbfaf6;
+}
+
+/* Efecto del botón secundario */
+#results-menu:hover {
+    background-color: #fbfaf6;
+    color: #02039b;
+}
+
+/* Ajustes para teléfonos */
+@media (max-width: 600px) {
+
+    #results {
+        padding: 35px 0;
+    }
+
+    #final-results {
+        padding: 20px;
+        font-size: 15px;
+    }
+
+    #play-again,
+    #results-menu {
+        width: 100%;
+    }
+}
+
+
+/* AJUSTES DEL MENÚ */
+
+/* Caja azul de las canciones */
+.menu-tracks {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Reduce el espacio debajo del título */
+.menu-tracks h2 {
+    margin: 0 0 15px;
+}
+
+/* Reduce la separación entre canciones */
+#song-list {
+    gap: 6px;
+}
+
+/* Botones de las canciones */
+#song-list button {
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+/* Efecto al pasar el mouse */
+#song-list button:hover {
+    padding-left: 25px;
+}
+
+/* Sección de Free Play */
+.menu-free {
+    padding: 30px 0;
+}
+
+/* Botón de Free Play */
+#free-play {
+    padding: 16px 20px;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+/* AJUSTES PARA CELULAR */
+
+@media (max-width: 600px) {
+
+    /* Evita que el título se corte */
+    .menu-hero h1 {
+        font-size: clamp(36px, 13vw, 58px);
+        letter-spacing: -2px;
+    }
+
+    /* Reduce los espacios del encabezado */
+    .menu-hero {
+        padding: 35px 0;
+    }
+
+    /* Botones más compactos */
+    #song-list button {
+        padding: 12px 14px;
+        font-size: 13px;
+    }
+
+    /* Evita que Free Play ocupe demasiado espacio */
+    #free-play {
+        padding: 15px;
+        font-size: 15px;
+        gap: 10px;
+    }
+}
+
+/* ANCHO DEL MENÚ DE CANCIONES */
+
+/* Evita que la caja azul sea demasiado ancha */
+.menu-tracks {
+    width: 100%;
+    max-width: 650px;
+}
+
+/* El modo libre tendrá el mismo ancho */
+.menu-free {
+    width: 100%;
+    max-width: 650px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 600px) {
+
+    /* Mantiene los contenedores dentro de la pantalla */
+    .menu-tracks,
+    .menu-free {
+        max-width: 100%;
+    }
+}
+
+
+/* CORRECCIÓN RESPONSIVE DEL MENÚ */
+
+@media (max-width: 600px) {
+
+    /* Permite que los contenedores se reduzcan */
+    #menu,
+    .menu-tracks,
+    .menu-free,
+    #song-list {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Evita que los botones superen el contenedor */
+    #song-list button,
+    #free-play {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Ajusta textos largos dentro de los botones */
+    #song-list button {
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+}
