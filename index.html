@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Configuración de la página -->
+    <!-- Configuración -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piano Trainer</title>
@@ -20,7 +20,7 @@
 
             <!-- Título principal -->
             <div class="menu-hero">
-                <p class="menu-label">LET`S LEARN PIANO</p>
+                <p class="menu-label">LET'S LEARN PIANO</p>
 
                 <h1>
                     PIANO<br>
@@ -34,9 +34,9 @@
 
             <!-- Selección de canciones -->
             <div class="menu-tracks">
-                <h2>01 / SELECT YOUR FIGHTER</h2>
+                <h2>01 / CHOOSE YOUR FIGHTER</h2>
 
-                <!-- JavaScript agrega aquí las canciones -->
+                <!-- JavaScript agrega las canciones -->
                 <div id="song-list"></div>
             </div>
 
@@ -44,7 +44,7 @@
             <div class="menu-free">
                 <span>02 / OR MAKE YOURS</span>
 
-                <!-- Conservamos el ID para JavaScript -->
+                <!-- ID para JavaScript -->
                 <button id="free-play">
                     FREE MODE - HIT IT!  <span>↗</span>
                 </button>
@@ -61,45 +61,44 @@
             <!-- PANTALLA DEL JUEGO -->
             <section id="game" hidden>
 
-                <!-- Nombre de la canción seleccionada -->
+                <!-- Nombre de la canción -->
                 <h2 id="song-title"></h2>
 
                 <!-- Contadores del juego -->
                 <p>Progress: <span id="progress">0 / 0</span></p>
-                <p>Misses: <span id="misses">0</span></p>
+                <p>Dead soldiers: <span id="misses">0</span></p>
 
-                <!-- Área donde caen las notas -->
+                <!-- Donde caen las notas -->
                 <div id="note-area">
 
-                    <!-- Línea donde debemos tocar las notas -->
+                    <!-- Línea donde se deben tocar las notas -->
                     <div id="hit-line"></div>
 
                 </div>
 
-                <!-- Piano creado desde JavaScript -->
+                <!-- Piano creado en JavaScript -->
                 <div id="piano"></div>
 
-                <!-- Botón para regresar al menú -->
-                <button id="back-button">Back to Menu</button>
+                <!-- Regresar al menú -->
+                <button id="back-button">Let's rest for now</button>
 
             </section>
 
-            <!-- PANTALLA DE RESULTADOS -->
+            <!-- RESULTADOS -->
             <section id="results" hidden>
 
-                <h2>Song Complete!</h2>
+                <h2>YOUS SMASHED IT!</h2>
 
-                <!-- Aquí aparecen los resultados finales -->
+                <!-- Resultados finales -->
                 <p id="final-results"></p>
 
                 <!-- Botones de resultados -->
-                <button id="play-again">Play Again</button>
-                <button id="results-menu">Back to Menu</button>
+                <button id="play-again">Second round?</button>
+                <button id="results-menu">Let's rest for now</button>
 
             </section>
 
     </main>
-
 
     <!-- Conecta el archivo JavaScript -->
     <script src="script.js"></script>

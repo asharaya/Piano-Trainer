@@ -10,7 +10,7 @@ const SONGS = [
         composer: "Traditional",
         bpm: 90,
 
-        // Notas de la canción en orden
+        // Notas de la canción
         notes: [
             { pitch: "C4", beats: 1 },
             { pitch: "C4", beats: 1 },
@@ -171,7 +171,7 @@ const SONGS = [
 
 /* TIEMPOS DE LAS NOTAS */
 
-// Calcula cuándo empieza cada nota de una canción
+// Calcula cuándo empieza cada nota
 function withStartBeats(notes) {
     let beat = 0;
 
@@ -234,7 +234,7 @@ function startSong(selectedSong) {
 
 /* MODO LIBRE */
 
-// Permite tocar el piano sin seguir una canción
+// Permite tocar el piano sin una canción
 function startFreePlay() {
 
     // Detiene cualquier animación anterior
@@ -250,7 +250,7 @@ function startFreePlay() {
 
     // Muestra el título del modo libre
     document.querySelector("#song-title").textContent =
-        "Free Play 🎹";
+        "FREE MODE";
 
     // Oculta el menú y muestra el piano
     document.querySelector("#menu").hidden = true;
@@ -285,7 +285,7 @@ function backToMenu() {
     // Detiene el avance de la canción
     playing = false;
 
-    // Cancela la animación pendiente
+    // Cancela la animación
     if (animationId !== null) {
         cancelAnimationFrame(animationId);
         animationId = null;
@@ -299,7 +299,7 @@ function backToMenu() {
     document.querySelector("#menu").hidden = false;
 }
 
-// Detecta cuando presionamos Back to Menu
+// Detecta cuando presionamos para regresar al menú
 document.querySelector("#back-button").addEventListener("click", () => {
     backToMenu();
 });
@@ -307,7 +307,7 @@ document.querySelector("#back-button").addEventListener("click", () => {
 
 /* MENÚ DE CANCIONES */
 
-// Busca el espacio donde aparecerán las canciones
+// Busca el espacio donde aparecen las canciones
 const songList = document.querySelector("#song-list");
 
 // Crea un botón para cada canción
@@ -369,7 +369,7 @@ const BLACK_KEYS = [
 // Cantidad de píxeles que representa un tiempo musical
 const PX_PER_BEAT = 120;
 
-// Busca el área donde caerán las notas
+// Busca el área donde caen las notas
 const noteArea = document.querySelector("#note-area");
 
 // Guarda la canción que estamos utilizando
@@ -492,7 +492,6 @@ function frame(now) {
     // Actualiza las posiciones de los bloques
     draw();
 
-    
     // Continúa la animación mientras esté activa
     if (playing) {
         animationId = requestAnimationFrame(frame);
@@ -588,7 +587,7 @@ createPiano();
 
 /* FINALIZAR CANCIÓN */
 
-// Muestra los resultados al terminar la canción
+// Muestra los resultados al terminar
 function finishSong() {
 
     // Detiene la animación
@@ -792,7 +791,7 @@ function playTone(pitch) {
     osc.frequency.value =
         440 * 2 ** ((midiOf(pitch) - 69) / 12);
 
-    // El sonido empieza fuerte y baja poco a poco
+    // Graduación del sonido
     gain.gain.setValueAtTime(0.3, audio.currentTime);
 
     gain.gain.exponentialRampToValueAtTime(

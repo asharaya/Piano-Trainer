@@ -1,8 +1,7 @@
 
 
 /* TIPOGRAFÍAS */
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap');
 
 /* ESTILOS GENERALES */
 
@@ -110,7 +109,7 @@ button:hover {
 
 /* EFECTOS DE LAS TECLAS */
 
-/* Hacer clic y evita seleccionar el texto */
+/* Hacer clic y evitar seleccionar el texto */
 .white-key,
 .black-key {
     cursor: pointer;
@@ -130,7 +129,6 @@ button:hover {
     background-color: #02039b;
     color: white;
 }
-
 
 /* ÁREA DE LAS NOTAS */
 
@@ -182,7 +180,6 @@ button:hover {
     background-color: #e63946 !important;
     color: white !important;
 }
-
 
 
 /* DISEÑO RESPONSIVE */
@@ -253,23 +250,11 @@ button:hover {
 }
 
 
-/* MENÚ EDITORIAL / BRUTALIST */
-
 /* Contenedor principal del menú */
 #menu {
     max-width: 1000px;
     margin: 0 auto;
     text-align: left;
-}
-
-/* Encabezado superior */
-.menu-header {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #777;
-    padding-bottom: 15px;
-    font-size: 12px;
-    letter-spacing: 2px;
 }
 
 /* Sección del título */
@@ -306,51 +291,52 @@ button:hover {
     line-height: 1.5;
 }
 
-/* Contenedor de canciones */
+/* Caja azul de las canciones */
 .menu-tracks {
     background-color: #02039b;
-    padding: 30px;
+    padding: 20px;
+    border-radius: 8px;
 }
 
-/* Título de la sección */
+/* Título de la selección de canciones */
 .menu-tracks h2 {
     font-size: 14px;
     letter-spacing: 2px;
-    margin-bottom: 25px;
+    margin: 0 0 15px;
 }
 
 /* Lista de canciones */
 #song-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 /* Botones de las canciones */
 #song-list button {
     width: 100%;
     margin: 0;
-    padding: 22px;
+    padding: 14px 18px;
     border: none;
-    border-radius: 0;
+    border-radius: 6px;
     background-color: #fbfaf6;
     color: #121212;
     text-align: left;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
     transition: all 0.2s ease;
 }
 
-/* Efecto al pasar el mouse */
+/* Efecto al pasar el mouse sobre una canción */
 #song-list button:hover {
     background-color: #121212;
     color: white;
-    padding-left: 35px;
+    padding-left: 25px;
 }
 
 /* Sección del modo libre */
 .menu-free {
-    padding: 45px 0;
+    padding: 30px 0;
     border-bottom: 1px solid #777;
 }
 
@@ -361,23 +347,23 @@ button:hover {
     color: #aaa;
 }
 
-/* Botón de Free Play */
+/* Botón de free mode */
 #free-play {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     margin: 20px 0 0;
-    padding: 25px;
+    padding: 16px 20px;
     border: 1px solid #fbfaf6;
-    border-radius: 0;
+    border-radius: 6px;
     background-color: transparent;
     color: white;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
 }
 
-/* Efecto del botón Free Play */
+/* Efecto del botón free mode */
 #free-play:hover {
     background-color: #fbfaf6;
     color: #02039b;
@@ -393,20 +379,19 @@ button:hover {
     color: #999;
 }
 
-
 /* MENÚ EN PANTALLAS PEQUEÑAS */
 
 @media (max-width: 600px) {
 
-    /* Ajusta el título */
+    /* Evita que el título se corte en celulares */
     .menu-hero h1 {
-        font-size: 58px;
-        letter-spacing: -3px;
+        font-size: clamp(36px, 13vw, 58px);
+        letter-spacing: -2px;
     }
 
-    /* Reduce los espacios */
+    /* Reduce los espacios del encabezado */
     .menu-hero {
-        padding: 45px 0;
+        padding: 35px 0;
     }
 
     .menu-tracks {
@@ -420,7 +405,6 @@ button:hover {
     }
 
     /* Ajusta los textos pequeños */
-    .menu-header,
     .menu-footer {
         font-size: 9px;
         gap: 15px;
@@ -446,11 +430,9 @@ button:hover {
 /* Botones y textos */
 button,
 .menu-description,
-.menu-header,
 .menu-footer {
     font-family: "DM Sans", sans-serif;
 }
-
 
 /* PANTALLA DEL JUEGO */
 
@@ -466,7 +448,6 @@ button,
     font-family: "DM Sans", sans-serif;
     font-weight: 900;
     font-size: clamp(40px, 6vw, 75px);
-    font-weight: normal;
     line-height: 1;
     margin: 20px 0 35px;
     color: #fbfaf6;
@@ -537,7 +518,6 @@ button,
    font-family: "DM Sans", sans-serif;
     font-weight: 900;
     font-size: clamp(50px, 9vw, 110px);
-    font-weight: normal;
     line-height: 1;
     color: #fbfaf6;
     margin: 20px 0 40px;
@@ -611,62 +591,9 @@ button,
 }
 
 
-/* AJUSTES DEL MENÚ */
-
-/* Caja azul de las canciones */
-.menu-tracks {
-    padding: 20px;
-    border-radius: 8px;
-}
-
-/* Reduce el espacio debajo del título */
-.menu-tracks h2 {
-    margin: 0 0 15px;
-}
-
-/* Reduce la separación entre canciones */
-#song-list {
-    gap: 6px;
-}
-
-/* Botones de las canciones */
-#song-list button {
-    padding: 14px 18px;
-    border-radius: 6px;
-    font-size: 15px;
-}
-
-/* Efecto al pasar el mouse */
-#song-list button:hover {
-    padding-left: 25px;
-}
-
-/* Sección de Free Play */
-.menu-free {
-    padding: 30px 0;
-}
-
-/* Botón de Free Play */
-#free-play {
-    padding: 16px 20px;
-    border-radius: 6px;
-    font-size: 18px;
-}
-
 /* AJUSTES PARA CELULAR */
 
 @media (max-width: 600px) {
-
-    /* Evita que el título se corte */
-    .menu-hero h1 {
-        font-size: clamp(36px, 13vw, 58px);
-        letter-spacing: -2px;
-    }
-
-    /* Reduce los espacios del encabezado */
-    .menu-hero {
-        padding: 35px 0;
-    }
 
     /* Botones más compactos */
     #song-list button {
